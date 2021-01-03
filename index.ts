@@ -2,26 +2,26 @@ import {LevelSystem} from "./models"
 const lvlDef = [
     {
         start: 1,
-        end: 9,
+        end: 1,
         xpPerLevel: 10,
     },
     {
-        start: 10,
-        end: 24,
+        start: 2,
+        end: 2,
         xpPerLevel: 25,
     },
     {
-        start: 25,
-        end: 49,
+        start: 3,
+        end: 3,
         xpPerLevel: 50,
     },
     {
-        start: 50,
-        end: 99,
+        start: 4,
+        end: 4,
         xpPerLevel: 75,
     },
     {
-        start: 100,
+        start: 5,
         xpPerLevel: 100,
     }
 ]
@@ -54,5 +54,5 @@ const labelDef = [
 ]
 
 const system = new LevelSystem(lvlDef, labelDef)
-console.log(system.getLabel(20))
+console.log(system.getNewLevel({level: 1, xp: 5}, 30))
 

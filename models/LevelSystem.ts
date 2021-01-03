@@ -27,26 +27,26 @@ export class LevelSystem{
 
         //first lets go until the last level
         for(let x=i; x<this.levelsDef.length; x++){
-            const {start: startLevel, end: endLevel, xpPerLevel} = this.levelsDef[x]
+            const {start: startLevel, end: endLevel, pointsPerLevel} = this.levelsDef[x]
             if(endLevel){
-                const levelsGained = Math.floor(xp + addxp / xpPerLevel);
+                const levelsGained = Math.floor(xp + addxp / pointsPerLevel);
                 //end case
                 if(level + levelsGained <= endLevel){
                     return{
                         level: level + levelsGained,
-                        xp: (xp + addxp) % xpPerLevel
+                        xp: (xp + addxp) % pointsPerLevel
                     }
                 }
                 //we need to go to the next level
-                addxp -= (xpPerLevel - xp) + (endLevel - level)*xpPerLevel;
+                addxp -= (pointsPerLevel - xp) + (endLevel - level)*pointsPerLevel;
                 xp = 0;
                 level = endLevel + 1;
             }
         }
         //we've reached the last level
         return{
-            level: level + Math.floor(addxp / lastRange.xpPerLevel),
-            xp: (addxp) % lastRange.xpPerLevel
+            level: level + Math.floor(addxp / lastRange.pointsPerLevel),
+            xp: (addxp) % lastRange.pointsPerLevel
         }
     }
 
@@ -59,7 +59,7 @@ export class LevelSystem{
         const i = this.levelsModel.getIndex(level);
         return {
             xp: xp,
-            max: this.levelsDef[i].xpPerLevel
+            max: this.levelsDef[i].pointsPerLevel
         }
     }
 }

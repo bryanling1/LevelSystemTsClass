@@ -1,7 +1,7 @@
 export interface LevelRange{
     start: number;
     end?: number;
-    xpPerLevel: number;
+    pointsPerLevel: number;
 }
 
 export interface LabelRange{
